@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Parent;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,10 +20,10 @@ import lombok.Setter;
 
 
 //Depedencias JPA Entity diz que é uma entidade para ser criada no banco de dados
+@Setter
 @Entity
 //getters e setters ja estão criados
 @Getter
-@Setter
 //Contrutores com parametros e sem parametros
 @NoArgsConstructor
 @AllArgsConstructor
@@ -61,4 +60,8 @@ public class Funcionario {
     @ManyToOne
     @JoinColumn(name = "salario_id", nullable = false)
     private Salario salario;
+   
+
+
+
 }
