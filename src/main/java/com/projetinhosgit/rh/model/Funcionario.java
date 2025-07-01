@@ -3,6 +3,7 @@ package com.projetinhosgit.rh.model;
 import java.time.LocalDate;
 
 import org.antlr.v4.runtime.misc.NotNull;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Parent;
 
 import jakarta.persistence.Column;
@@ -18,19 +19,24 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+
+//Depedencias JPA Entity diz que é uma entidade para ser criada no banco de dados
 @Entity
+//getters e setters ja estão criados
 @Getter
 @Setter
+//Contrutores com parametros e sem parametros
 @NoArgsConstructor
 @AllArgsConstructor
 public class Funcionario {
 
+	//id e primary key
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Size(max = 100)
+    @BatchSize(size = 100)
     private String nome;
 
  
@@ -39,7 +45,7 @@ public class Funcionario {
     private String email;
 
     @NotNull
-    @Size(max = 14)
+    @BatchSize(size = 14)
     @Column(unique = true, length = 14)
     private String cpf;
 
