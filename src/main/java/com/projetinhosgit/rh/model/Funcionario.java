@@ -48,7 +48,6 @@ public class Funcionario {
     @Column(unique = true, length = 14)
     private String cpf;
 
- 
     private LocalDate dataNascimento;
 
     private LocalDate dataAdmissao;
