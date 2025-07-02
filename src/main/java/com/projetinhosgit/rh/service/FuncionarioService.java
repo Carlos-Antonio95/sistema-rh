@@ -43,13 +43,14 @@ public class FuncionarioService {
         }
     }
     
-    //Atualizar email do funcionario
+    //Atualizar email e nome do funcionario
     public Funcionario atualizarFuncionario(Long id, Funcionario funcionarioAtualizado) {
     	Optional<Funcionario> funcionarioExistenteOptional = funcionarioRepository.findById(id);
     	
     	if (funcionarioExistenteOptional.isPresent()) {
 			Funcionario funcionarioExistente = funcionarioExistenteOptional.get();
 			funcionarioExistente.setEmail(funcionarioAtualizado.getEmail());
+			funcionarioExistente.setNome(funcionarioAtualizado.getNome());
 			return funcionarioRepository.save(funcionarioExistente);
 		} else {
 			throw new IllegalArgumentException("Funcionario não encontrado");
