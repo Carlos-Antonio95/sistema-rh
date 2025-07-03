@@ -1,8 +1,9 @@
 package com.projetinhosgit.rh.model;
 
+import org.antlr.v4.runtime.misc.NotNull;
+import org.hibernate.annotations.BatchSize;
+
 import jakarta.persistence.*; // Importe do pacote jakarta.persistence para JPA
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

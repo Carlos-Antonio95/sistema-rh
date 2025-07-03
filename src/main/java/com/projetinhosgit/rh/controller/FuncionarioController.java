@@ -10,7 +10,7 @@ import com.projetinhosgit.rh.model.Funcionario;
 import com.projetinhosgit.rh.service.FuncionarioService;
 
 @RestController
-@RequestMapping("/api/funcionarios")
+@RequestMapping("/api/funcionarios/")
 public class FuncionarioController {
 
     private final FuncionarioService funcionarioService;

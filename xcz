@@ -1,0 +1,73 @@
+[33mcommit 8f05a80dd4959be6956b7c5a940b61d611122bdd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Carlos Antonio <carlosantonioob@gmail.com>
+Date:   Wed Jul 2 20:57:53 2025 -0300
+
+    funcionario controller criada com os cruds padrões
+
+[33mcommit 7ce360dbcb8747b3ce7291ac8247bab90e7a8ab2[m
+Author: JoaoVitor <vitorsantanalins@gmail.com>
+Date:   Wed Jul 2 20:24:27 2025 -0300
+
+    Criação do UsuarioRepository
+
+[33mcommit 2df06aff73ba9f5d17d43600d8585a57a8b6076b[m
+Author: Carlos Antonio <carlosantonioob@gmail.com>
+Date:   Tue Jul 1 21:51:13 2025 -0300
+
+    Criando crud fucnioario Service
+
+[33mcommit 32e837af04346730db37a1538630f4e605513915[m
+Merge: f9c2d25 8624455
+Author: Carlos Antonio <carlosantonioob@gmail.com>
+Date:   Tue Jul 1 20:55:55 2025 -0300
+
+    tessdaskdksa
+
+[33mcommit f9c2d2552e41bbcfb5cfeb89b34ba44674547c0e[m
+Author: Carlos Antonio <carlosantonioob@gmail.com>
+Date:   Tue Jul 1 20:52:54 2025 -0300
+
+    Criação da classe repository funcionario
+
+[33mcommit 86244559864df36af1fb3334c84d08c6b6245b7c[m
+Merge: b0b5872 ce0c373
+Author: JoaoVitor <vitorsantanalins@gmail.com>
+Date:   Tue Jul 1 20:45:02 2025 -0300
+
+    Merge branch 'main' of https://github.com/Carlos-Antonio95/sistema-rh
+
+[33mcommit b0b5872a3026e58eb7beb79b855ea18fa4803150[m
+Author: JoaoVitor <vitorsantanalins@gmail.com>
+Date:   Tue Jul 1 20:44:44 2025 -0300
+
+    Adicionando classe Usuario
+
+[33mcommit ce0c373b3ba8f9eb021ff0cbe58bb864f9338dd8[m
+Author: Carlos Antonio <carlosantonioob@gmail.com>
+Date:   Mon Jun 30 21:10:15 2025 -0300
+
+    comentarios
+
+[33mcommit 782c3b4614ebfc63080c3a9ef998d861ee34ce45[m
+Author: JoaoVitor <vitorsantanalins@gmail.com>
+Date:   Mon Jun 30 21:06:10 2025 -0300
+
+    teste att
+
+[33mcommit 9edb623bf999efa97d1d36fdc808f9c090746155[m
+Author: Carlos Antonio <carlosantonioob@gmail.com>
+Date:   Mon Jun 30 20:30:42 2025 -0300
+
+     Classe Funcionario
+
+[33mcommit 70d59bb0df84de6785483203771baa63f06e7852[m
+Author: Carlos Antonio <carlosantonioob@gmail.com>
+Date:   Sun Jun 29 11:30:38 2025 -0300
+
+    Configura~ções do spring
+
+[33mcommit b1e72b1532d1900ae415c860469be583fc2dadde[m
+Author: Carlos Antonio <carlosantonioob@gmail.com>
+Date:   Sun Jun 29 10:14:19 2025 -0300
+
+    Projeto Spring Boot inicial -rh
