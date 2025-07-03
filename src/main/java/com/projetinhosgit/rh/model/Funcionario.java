@@ -1,5 +1,6 @@
 package com.projetinhosgit.rh.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import org.antlr.v4.runtime.misc.NotNull;
@@ -56,10 +57,7 @@ public class Funcionario {
     @JoinColumn(name = "cargo_id", nullable = false)
     private Cargo cargo;
 
-    @ManyToOne
-    @JoinColumn(name = "salario_id", nullable = false)
-    private Salario salario;
-   
+    private BigDecimal bonus;
 
 
 

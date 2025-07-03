@@ -28,6 +28,8 @@ public class Usuario {
     @NotNull
     @Size(max = 255)
     private String senhaHash;
+    
+   
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "funcionario_id", referencedColumnName = "id")
