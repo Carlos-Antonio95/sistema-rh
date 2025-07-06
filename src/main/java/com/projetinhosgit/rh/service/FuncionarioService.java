@@ -64,7 +64,7 @@ public class FuncionarioService {
 		}
     }
     
-    //Atualizar bôbus funcionário
+    //Atualizar bônus funcionário
     public String atualizarBonusFuncionario(Long id, BigDecimal bonusAtualizado) {
         Optional<Funcionario> funcionarioOpt = funcionarioRepository.findById(id);
 
