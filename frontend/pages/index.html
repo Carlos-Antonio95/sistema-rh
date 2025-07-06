@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciador Sistema RH</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 sidebar">
+        <h5 class="text-center">NexFour</h5>
+        <a href="#">Folha de Pagamento</a>
+        <a href="#">Cadastrar Funcionario</a>
+        <a href="#">Cargos</a>
+        <a href="#">Relatórios</a>
+        <a href="#">Controles de Ferias</a>
+        <a href="#">Logs Excluídos</a>
+        <a href="#">Opções</a>
+      </div>
+      <div class="col-10">
+        <div class="topbar d-flex justify-content-between align-items-center">
+          <div><strong>Funcionario do Rh</strong></div>
+          <div><span class="creditos">Funcionario online: null</span></div>
+        </div>
+        <div class="p-4">
+          <h4>Meus Funcionarios Sistema RH</h4>
+          <div class="row mb-3">
+            <div class="col-md-4"><input type="text" class="form-control" placeholder="Digite o nome do funcionario"></div>
+            <div class="col-md-2"><button class="btn btn-primary w-100" onclick="filtroOK()">OK</button></div>
+            <div class="col-md-3"><select class="form-select"><option>Selecionar Funcionario</option></select></div>
+            <div class="col-md-3"><select class="form-select"><option>Função</option></select></div>
+          </div>
+          <table class="table table-bordered">
+            <thead>
+              <tr><th>Nome</th><th>Salario</th><th>Função</th><th>Email</th><th>Admissão</th><th>Empresa</th><th></th><th>Ação</th></tr>
+            </thead>
+            <tbody id="tabelaUsuarios">
+              <tr>
+                <td>Carlos</td><td>R$ 0,00</td><td>Contador</td><td>carlos@gmail.com</td><td>28/02/25</td><td>NexFour</td>
+                <td></td>
+                <td class="btn-acoes">
+                  <button class="btn btn-sm btn-primary">🔄</button>
+                  <button class="btn btn-sm btn-warning">✏️</button>
+                  <button class="btn btn-sm btn-danger">🗑️</button>
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-success">Adicionar Novo</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

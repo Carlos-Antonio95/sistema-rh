@@ -1,0 +1,35 @@
+
+body {
+  background-color: #f7f7f7;
+}
+.sidebar {
+  background-color: #1e2a38;
+  height: 100vh;
+  padding-top: 20px;
+  color: white;
+}
+.sidebar a {
+  color: #ccc;
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+.sidebar a:hover {
+  background-color: #0f1b29;
+  color: white;
+}
+.topbar {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.creditos {
+  background-color: #1abc9c;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.btn-acoes button {
+  margin-right: 4px;
+}
