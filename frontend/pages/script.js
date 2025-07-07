@@ -25,7 +25,31 @@ function salvarFuncionario() {
   const lista = JSON.parse(localStorage.getItem("funcionarios") || "[]");
   lista.push(funcionario);
   localStorage.setItem("funcionarios", JSON.stringify(lista));
-  window.location.href = "index.html";
+
+  // Exibe mensagem de sucesso
+  exibirMensagem("Usuário cadastrado com sucesso!", "success");
+
+  // Redireciona após 1,5 segundos
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 1500);
+}
+
+// Função para exibir mensagem na tela
+function exibirMensagem(texto, tipo) {
+  let msg = document.getElementById("mensagem");
+  if (!msg) {
+    msg = document.createElement("div");
+    msg.id = "mensagem";
+    msg.style.margin = "10px 0";
+    msg.style.padding = "10px";
+    msg.style.borderRadius = "5px";
+    msg.style.textAlign = "center";
+    document.body.prepend(msg);
+  }
+  msg.textContent = texto;
+  msg.style.background = tipo === "success" ? "#d4edda" : "#f8d7da";
+  msg.style.color = tipo === "success" ? "#155724" : "#721c24";
 }
 
 function carregarFuncionarios() {
@@ -47,12 +71,12 @@ function carregarFuncionarios() {
       <td>${f.empresa}</td>
       <td></td>
       <td class="btn-acoes">
-        <button class="btn btn-sm btn-primary">🔄</button>
         <button class="btn btn-sm btn-warning">✏️</button>
         <button class="btn btn-sm btn-danger">🗑️</button>
       </td>
     `;
     tabela.appendChild(linha);
+    
   }
 }
 

@@ -1,0 +1,172 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f6d365;
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    position: relative;
+}
+
+.background {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
+    z-index: 1;
+    filter: blur(2px) brightness(0.8);
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.campo-grupo {
+    position: relative;
+    width: 350px;
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campo-grupo h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.campo-entrada {
+    position: relative;
+    width: 100%;
+}
+
+.campo-entrada2 {
+    position: relative;
+    width: 100%;
+}
+
+.campo-entrada input {
+    width: 100%;
+    padding: 12px 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.campo-entrada2 input {
+    width: 100%;
+    padding: 12px 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.campo-entrada label {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.campo-entrada2 label {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.campo-entrada2 input:focus + label,
+.campo-entrada2 input:not(:placeholder-shown) + label {
+    top: -17px;
+    left: 5px;
+    font-size: 12px;
+    color: #0f0e0e;
+    background: rgba(255,255,255,0.2);
+    padding: 0 5px;
+    border-radius: 4px;
+}
+
+
+.campo-entrada input:not(:placeholder-shown) + label,
+.campo-entrada input:focus + label {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+
+
+.opções {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+.opções a {
+    color: #fda085;
+    text-decoration: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(90deg, #fda085 0%, #a1159a 100%);
+}
+
+.campo-grupo p {
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.campo-grupo p a {
+    color: #fda085;
+    text-decoration: none;
+}
