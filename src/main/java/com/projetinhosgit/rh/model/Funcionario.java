@@ -14,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,17 +32,17 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotBlank
     @Size(max = 100)
     @Column(length = 100)
     private String nome;
 
-    @NotNull
+    @NotBlank
     @Size(max = 100)
     @Column(unique = true, length = 100)
     private String email;
 
-    @NotNull
+    @NotBlank
     @Size(max = 14)
     @Column(unique = true, length = 14)
     private String cpf;
@@ -53,7 +54,7 @@ public class Funcionario {
     @JoinColumn(name = "cargo_id", nullable = false)
     private Cargo cargo;
 
-    private BigDecimal bonus;
+    private BigDecimal salario;
 }
 
 

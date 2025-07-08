@@ -65,14 +65,14 @@ public class FuncionarioService {
     }
     
     //Atualizar bônus funcionário
-    public String atualizarBonusFuncionario(Long id, BigDecimal bonusAtualizado) {
+    public String atualizarBonusFuncionario(Long id, BigDecimal salarioAtualizado) {
         Optional<Funcionario> funcionarioOpt = funcionarioRepository.findById(id);
 
         if (funcionarioOpt.isPresent()) {
             Funcionario funcionario = funcionarioOpt.get();
-            funcionario.setBonus(bonusAtualizado);
+            funcionario.setSalario(salarioAtualizado);
             funcionarioRepository.save(funcionario);
-            return "Bônus do funcionário " + funcionario.getNome() + " atualizado para R$ " + funcionario.getBonus();
+            return "Salário do funcionário " + funcionario.getNome() + " atualizado para R$ " + funcionario.getSalario();
         } else {
             throw new IllegalArgumentException("Funcionário não encontrado");
         }
