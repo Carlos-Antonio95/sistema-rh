@@ -60,7 +60,7 @@ function carregarFuncionarios() {
 
   tabela.innerHTML = "";
 
-  for (const f of lista) {
+  for (const [index, f] of lista.entries()) {
     const linha = document.createElement("tr");
     linha.innerHTML = `
       <td>${f.nome}</td>
@@ -69,15 +69,25 @@ function carregarFuncionarios() {
       <td>${f.email}</td>
       <td>${f.admissao}</td>
       <td>${f.empresa}</td>
-      <td></td>
+      <td>${index}</td>
       <td class="btn-acoes">
+        
         <button class="btn btn-sm btn-warning">✏️</button>
-        <button class="btn btn-sm btn-danger">🗑️</button>
+        <button class="btn btn-sm btn-danger" onclick="excluirFuncionario(${index})">🗑️</button>
       </td>
     `;
     tabela.appendChild(linha);
-    
   }
 }
+
+function excluirFuncionario(index) {
+  if (confirm("Deseja excluir este funcionário?")) {
+    const lista = JSON.parse(localStorage.getItem("funcionarios") || "[]");
+    lista.splice(index, 1);
+    localStorage.setItem("funcionarios", JSON.stringify(lista));
+    carregarFuncionarios(); // Atualiza a tabela
+  }
+}
+
 
 window.onload = carregarFuncionarios;
