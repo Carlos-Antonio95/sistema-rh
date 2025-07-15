@@ -36,20 +36,19 @@ public class CargoService {
 		return cargoRepository.save(cargo);
 	}
 	
-	//Método atualizar cargo
-	public String atulizarCargo(Long id, Cargo cargoAtualizado) {
-		Optional<Cargo> cargoExistenteOptional = cargoRepository.findById(id);
-		if (cargoExistenteOptional.isPresent()) {
-			Cargo cargoExistente = cargoExistenteOptional.get();
-			cargoExistente.setSetor(cargoAtualizado.getSetor());
-			cargoExistente.setNome(cargoAtualizado.getNome());
-			cargoRepository.save(cargoExistente);
-			return "Cargo atualizado para: "+cargoExistente.getNome()+" , setor atualizado para "+cargoExistente.getSetor();
-		}else {
-			  throw new IllegalArgumentException("Cargo não encontrado");
-		}
-		
+	//método retornar um cargo
+	public Cargo atulizarCargo(Long id, Cargo cargoAtualizado) {
+	    Optional<Cargo> cargoExistenteOptional = cargoRepository.findById(id);
+	    if (cargoExistenteOptional.isPresent()) {
+	        Cargo cargoExistente = cargoExistenteOptional.get();
+	        cargoExistente.setSetor(cargoAtualizado.getSetor());
+	        cargoExistente.setNome(cargoAtualizado.getNome());
+	        return cargoRepository.save(cargoExistente); // retorna o objeto salvo
+	    } else {
+	        throw new IllegalArgumentException("Cargo não encontrado");
+	    }
 	}
+
 	
 	//método para excluir um cargo
 	public String deletarCargo(Long id) {

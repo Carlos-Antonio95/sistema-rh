@@ -1,18 +1,30 @@
 package com.projetinhosgit.rh.config;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import org.springframework.context.annotation.Bean;                  
-import org.springframework.context.annotation.Configuration;       
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; 
-
-// Essa anotação diz ao Spring que essa classe contém métodos que criam "beans" de configuração
 @Configuration
 public class SecurityConfig {
-    
-    // Esse método define um bean do tipo BCryptPasswordEncoder, que ficará disponível para ser injetado em qualquer classe do projeto
+
+    // Libera todas as rotas sem autenticação
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(csrf -> csrf.disable()) // desativa proteção CSRF (para testes com ferramentas como Insomnia/Postman)
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/**").permitAll() // permite qualquer rota sem autenticação
+                .anyRequest().permitAll()
+            );
+
+        return http.build();
+    }
+
+    // Bean para encriptar senhas (mantém o seu)
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
-        // Cria uma nova instância do codificador BCrypt, usado para criptografar senhas
         return new BCryptPasswordEncoder();
     }
 }

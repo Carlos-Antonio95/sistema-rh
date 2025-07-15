@@ -7,17 +7,23 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.projetinhosgit.rh.model.Cargo;
 import com.projetinhosgit.rh.model.Funcionario;
+import com.projetinhosgit.rh.repository.CargoRepository;
 import com.projetinhosgit.rh.repository.FuncionarioRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class FuncionarioService {
 	
 	private  FuncionarioRepository funcionarioRepository;
+	private CargoRepository cargoRepository;
 	
 
-    public FuncionarioService(FuncionarioRepository funcionarioRepository) {
+    public FuncionarioService(FuncionarioRepository funcionarioRepository, CargoRepository cargoRepository) {
         this.funcionarioRepository = funcionarioRepository;
+        this.cargoRepository = cargoRepository;
     }
 
     //Retorna a lista de todos os funcionarios
@@ -64,6 +70,32 @@ public class FuncionarioService {
 		}
     }
     
+    //Atualizar cargo do funcionario
+    public Funcionario atualizarCargo(Long id, Long idCargoAnterior, Long idCargoNovo) {
+        Optional<Funcionario> funcionarioExistenteOptional = funcionarioRepository.findById(id);
+        Optional<Cargo> cargoAnteriorExistenteOptional = cargoRepository.findById(idCargoAnterior);
+        Optional<Cargo> cargoNovoExistenteOptional = cargoRepository.findById(idCargoNovo);
+
+        if (funcionarioExistenteOptional.isPresent() &&
+            cargoAnteriorExistenteOptional.isPresent() &&
+            cargoNovoExistenteOptional.isPresent()) {
+            
+            Funcionario funcionarioExistente = funcionarioExistenteOptional.get();
+            Cargo cargoAtual = funcionarioExistente.getCargo();
+
+            // Verifica se o funcionário está no cargoAnterior antes de atualizar
+            if (!cargoAtual.getId().equals(idCargoAnterior)) {
+                throw new IllegalArgumentException("Funcionário não está no cargo anterior informado.");
+            }
+
+            // Atualiza para o novo cargo
+            funcionarioExistente.setCargo(cargoNovoExistenteOptional.get());
+            return funcionarioRepository.save(funcionarioExistente);
+        }
+
+        throw new EntityNotFoundException("Funcionário ou cargos não encontrados.");
+    }
+
     //Atualizar bônus funcionário
     public String atualizarBonusFuncionario(Long id, BigDecimal salarioAtualizado) {
         Optional<Funcionario> funcionarioOpt = funcionarioRepository.findById(id);

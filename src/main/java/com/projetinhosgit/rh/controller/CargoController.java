@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.projetinhosgit.rh.model.Cargo;
 import com.projetinhosgit.rh.model.Funcionario;
 import com.projetinhosgit.rh.service.CargoService;
 
-@Controller
-@RequestMapping("api/cargos/")
+@RestController
+@RequestMapping("api/cargos")
 public class CargoController {
 	private final CargoService cargoService;
 	
