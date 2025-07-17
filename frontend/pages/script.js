@@ -9,7 +9,7 @@ function salvarFuncionario() {
   const ano = document.getElementById("anoAdmissao").value;
 
   if (!nome || !email || !empresa || !funcao || !salario || !dia || !mes || !ano) {
-    alert("Preencha todos os campos!");
+    exibirMensagem("Preencha todos os campos!", "danger");
     return;
   }
 
@@ -22,18 +22,24 @@ function salvarFuncionario() {
     admissao: `${dia.padStart(2, '0')}/${mes.padStart(2, '0')}/${ano}`
   };
 
-  const lista = JSON.parse(localStorage.getItem("funcionarios") || "[]");
-  lista.push(funcionario);
+  let lista = JSON.parse(localStorage.getItem("funcionarios") || "[]");
+  const funcionarioEditando = JSON.parse(localStorage.getItem("funcionarioEditando"));
+
+  if (funcionarioEditando && funcionarioEditando.index !== undefined) {
+    lista[funcionarioEditando.index] = funcionario;
+    localStorage.removeItem("funcionarioEditando");
+  } else {
+    lista.push(funcionario);
+  }
+
   localStorage.setItem("funcionarios", JSON.stringify(lista));
+  exibirMensagem("Funcionário salvo com sucesso!", "success");
 
-  // Exibe mensagem de sucesso
-  exibirMensagem("Usuário cadastrado com sucesso!", "success");
-
-  // Redireciona após 1,5 segundos
   setTimeout(() => {
     window.location.href = "index.html";
   }, 1500);
 }
+
 
 // Função para exibir mensagem na tela
 function exibirMensagem(texto, tipo) {
@@ -72,7 +78,7 @@ function carregarFuncionarios() {
       <td>${index}</td>
       <td class="btn-acoes">
         
-        <button class="btn btn-sm btn-warning">✏️</button>
+        <button class="btn btn-sm btn-warning" onclick="editarFuncionario(${index})">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="excluirFuncionario(${index})">🗑️</button>
       </td>
     `;
@@ -89,5 +95,16 @@ function excluirFuncionario(index) {
   }
 }
 
+function editarFuncionario(index) {
+  const lista = JSON.parse(localStorage.getItem("funcionarios") || "[]");
+  const funcionario = lista[index];
 
+  // Salva o funcionário e o índice temporariamente
+  funcionario.index = index;
+  localStorage.setItem("funcionarioEditando", JSON.stringify(funcionario));
+
+  // Redireciona para o formulário de cadastro para edição
+  window.location.href = "CadastroF.html";
+
+}
 window.onload = carregarFuncionarios;
